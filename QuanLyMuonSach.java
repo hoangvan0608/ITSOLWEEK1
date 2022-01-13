@@ -44,39 +44,46 @@ public class QuanLyMuonSach extends Sach{
             this.banDoc = banDoc;
             System.out.println("Nhập số lượng sách mà bạn đọc có mã BĐ là " + banDoc.getMaBD() + " muốn mượn: ");
             int sl = sc.nextInt();
-            int stt = 1;
-
-            for(int i = 0; i < sl; ++i)
+            if(sl >5)
             {
-                if (this.saches[this.saches.length - 1] != null) {
-                    System.out.println("Tối đa");
-                    break;
-                }
+                System.out.println("Mượn quá số sách!");
+            }
+            else
+            {
 
-                if (this.saches[i] == null) {
-                     while(i<sl)
-                    {
-                        System.out.println("Nhập mã sách thứ " + stt + ":");
-                        int maSach = sc.nextInt();
-                        if (this.timKiemTheoMaSach(sachesss, maSach) == null) {
-                            System.out.println("Không tồn tại sách nào có mã sách là "+maSach+"!\nNhập lại mã sách hợp lệ!");
-                        } else {
-                            ++stt;
-                            Sach b = this.timKiemTheoMaSach(sachesss, maSach);
-                            if (this.demDauSach(this.saches, b.getChuyenNganh()) <= 5) {
-                                this.themSachMuon(b);
-                                continue;
-                            }
+                int stt = 1;
 
-                            System.out.println("qua so luong sach cua 1 dau sach, hay chon sach khac");
-                            --stt;
-                        }
-                        i++;
+                for(int i = 0; i < sl; ++i)
+                {
+                    if (this.saches[this.saches.length - 1] != null) {
+                        System.out.println("Tối đa");
+                        break;
                     }
 
-                }
+                         while(i<sl)
+                        {
+                            System.out.println("Nhập mã sách thứ " + stt + ":");
+                            int maSach = sc.nextInt();
+                            if (this.timKiemTheoMaSach(sachesss, maSach) == null) {
+                                System.out.println("Không tồn tại sách nào có mã sách là "+maSach+"!\nNhập lại mã sách hợp lệ!");
+                            } else {
+                                ++stt;
+                                Sach b = this.timKiemTheoMaSach(sachesss, maSach);
+                                if (this.demDauSach(this.saches, b.getChuyenNganh()) <3) {
+                                    this.themSachMuon(b);
+                                    i++;
+                                    continue;
+                                }
+
+                                System.out.println("qua so luong sach cua 1 dau sach, hay chon sach khac");
+                                --stt;
+                            }
+                        }
+
+                    }
             }
         }
+
         public void hienThi() {
             System.out.println("Ban doc " + this.banDoc.getMaBD() + " da muon cac sach:");
 
@@ -86,7 +93,5 @@ public class QuanLyMuonSach extends Sach{
             }
 
         }
-
-
 
 }
