@@ -93,5 +93,21 @@ public class QuanLyMuonSach extends Sach{
             }
 
         }
+        public void search(BanDoc[] banDoc)
+        {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Nhập tên bạn đọc mượn sách: ");
+            String ten = scanner.nextLine();
+
+            for (int i = 0; i < saches.length && this.saches[i] != null; i++)
+            {
+                if(banDoc[i].getTenBD().equalsIgnoreCase(ten.trim()))
+                {
+                    System.out.print("\t");
+                    System.out.println(this.saches[i].toString());
+                }
+
+            }
+        }
 
 }

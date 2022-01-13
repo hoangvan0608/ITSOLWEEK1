@@ -41,6 +41,12 @@ public class Main {
                         muonSaches[i].hienThi();
                     }
                     break;
+                case 6:
+                    for (int i = 0; i < muonSaches.length && muonSaches[i] != null; i++) {
+                        muonSaches[i].search(ql.banDocs);
+                    }
+                    break;
+
                 default:break;
             }
         } while (luaChon != 0);
@@ -54,7 +60,7 @@ public class Main {
         System.out.println("3. Thêm sách");
         System.out.println("4. Hiển thị danh sách sách");
         System.out.println("5. Lập danh sách mượn sách");
-        System.out.println("6. Sắp xếp danh sách  mượn sách");
+        System.out.println("6. Tìm kiếm theo DS mượn theo tên bạn đọc");
         System.out.println("0. Exit");
         System.out.println("=========================================");
     }

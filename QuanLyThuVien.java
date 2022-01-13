@@ -42,11 +42,18 @@ public class QuanLyThuVien {
     }
     public void hienThiBanDoc()
     {
-        System.out.println("Danh sách bạn đọc: ");
-        for (int i = 0; i < banDocs.length; i++) {
-            if(banDocs[i] != null)
-                System.out.println((i+1) +"\t"+banDocs[i].toString());
+        if(banDocs[0]!= null)
+        {
+            System.out.println("Danh sách bạn đọc: ");
+            for (int i = 0; i < banDocs.length; i++) {
+                if(banDocs[i] != null)
+                    System.out.println((i+1) +"\t"+banDocs[i].toString());
+            }
         }
+        else {
+            System.out.println("Vui lòng thêm mới");
+        }
+
     }
 
     public void themMoiSach()
@@ -84,11 +91,18 @@ public class QuanLyThuVien {
     }
     public void hienThiSach()
     {
-        System.out.println("Danh sách các quyển sách đã có tại thư viện: ");
-        for (int i = 0; i < sachs.length; i++) {
-            if(sachs[i] != null)
-                System.out.println((i+1) +"\n"+sachs[i].toString());
+        if(sachs[0] != null)
+        {
+            System.out.println("Danh sách các quyển sách đã có tại thư viện: ");
+            for (int i = 0; i < sachs.length; i++) {
+                if(sachs[i] != null)
+                    System.out.println((i+1) +"\n"+sachs[i].toString());
+            }
         }
+        else {
+            System.out.println("Vui lòng thêm sách!");
+        }
+
     }
 
 
